@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import ContactMessage
+from .models import ContactMessage, Article
 
 
 def index(request):
@@ -23,4 +23,8 @@ def index(request):
         else:
             messages.error(request, 'Veuillez remplir tous les champs obligatoires.')
 
-    return render(request, 'core/index.html')
+    articles = Article.objects.filter(publie=True)[:6]
+
+    return render(request, 'core/index.html', {
+        'articles': articles,
+    })
