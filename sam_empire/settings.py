@@ -6,9 +6,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-change-me-in-production-sam-empire-2024'
+SECRET_KEY = 'c6(z4p_1y4$@d1o6fb2v%+s9qq=(l!pcys-wrou^3z_b0@r@nn'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
