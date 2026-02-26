@@ -1,0 +1,77 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Contact — SAM EMPIRE{% endblock %}
+{% block nav_contact %}active{% endblock %}
+
+{% block content %}
+<!-- TÉMOIGNAGES -->
+<section class="testimonials section-padding page-section" id="temoignages"><div class="container">
+    <div class="section-header reveal active">
+        <div class="section-tag">Retour client</div>
+        <h2 class="section-title">Ce que disent nos <span class="highlight">Clients</span></h2>
+        <p class="section-subtitle">La satisfaction de nos clients est notre plus grande fierté.</p>
+    </div>
+    <div class="testimonials-slider">
+        {% for t in temoignages %}
+        <div class="testimonial-card reveal active">
+            <div class="testimonial-quote">"</div>
+            <p>{{ t.texte }}</p>
+            <div class="testimonial-author">
+                <div class="testimonial-author-avatar">⭐</div>
+                <div class="testimonial-author-info">
+                    <h5>{{ t.nom_client }}</h5>
+                    <span>{{ t.entreprise|default:"Client" }}</span>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="testimonial-card reveal active"><div class="testimonial-quote">"</div><p>SAM EMPIRE a transformé notre image de marque. Leur équipe a su comprendre nos besoins et proposer des solutions créatives et efficaces.</p><div class="testimonial-author"><div class="testimonial-author-avatar">⭐</div><div class="testimonial-author-info"><h5>Client satisfait</h5><span>Entreprise partenaire</span></div></div></div>
+        <div class="testimonial-card reveal active"><div class="testimonial-quote">"</div><p>La qualité de production vidéo est exceptionnelle. Ils ont su capturer l'essence de notre événement avec professionnalisme.</p><div class="testimonial-author"><div class="testimonial-author-avatar">⭐</div><div class="testimonial-author-info"><h5>Client satisfait</h5><span>Événementiel</span></div></div></div>
+        <div class="testimonial-card reveal active"><div class="testimonial-quote">"</div><p>Une équipe réactive, créative et à l'écoute. SAM EMPIRE a dépassé toutes nos attentes en stratégie de communication digitale.</p><div class="testimonial-author"><div class="testimonial-author-avatar">⭐</div><div class="testimonial-author-info"><h5>Client satisfait</h5><span>Communication digitale</span></div></div></div>
+        {% endfor %}
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+        <a href="{% url 'page_temoignages' %}" class="btn-primary">Voir plus de témoignages <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="contact section-padding" id="contact"><div class="container">
+    <div class="section-header reveal active">
+        <div class="section-tag">Parlons de votre projet</div>
+        <h2 class="section-title">Contactez-<span class="highlight">nous</span></h2>
+        <p class="section-subtitle">Prêt à donner à vos ambitions la dimension d'un empire ?</p>
+    </div>
+    <div class="contact-grid">
+        <div class="contact-info reveal active">
+            <h3>Restons en contact</h3>
+            <p>N'hésitez pas à nous contacter pour toute question ou demande de devis.</p>
+            <div class="contact-details">
+                <div class="contact-item"><div class="contact-item-icon">📍</div><div class="contact-item-text"><h5>Adresse</h5><p>Karpala, secteur 50, arrondissement 11<br>s/co1 BP 617 Ouagadougou 01, Burkina Faso</p></div></div>
+                <div class="contact-item"><div class="contact-item-icon">📱</div><div class="contact-item-text"><h5>Téléphone</h5><p>+226 55 43 28 82<br>+226 05 12 24 88</p></div></div>
+                <div class="contact-item"><div class="contact-item-icon">✉️</div><div class="contact-item-text"><h5>Email</h5><p>samempire1@yahoo.com</p></div></div>
+            </div>
+            <div class="contact-socials">
+                <a href="https://www.facebook.com/Entreprise.SamEmpire/" target="_blank" class="contact-social" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+                <a href="https://www.tiktok.com/@pdg.samempire" target="_blank" class="contact-social" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.7a8.2 8.2 0 004.76 1.52V6.77a4.83 4.83 0 01-1-.08z"/></svg></a>
+                <a href="mailto:samempire1@yahoo.com" class="contact-social" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></a>
+            </div>
+        </div>
+        <div class="contact-form-wrapper reveal active">
+            <h4>Envoyez-nous un message</h4>
+            <p>Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+            <form method="post" action="{% url 'page_contact' %}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group"><label for="nom">Nom complet *</label><input type="text" id="nom" name="nom" placeholder="Votre nom" required></div>
+                    <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div>
+                </div>
+                <div class="form-group"><label for="sujet">Sujet</label><input type="text" id="sujet" name="sujet" placeholder="Sujet de votre message"></div>
+                <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Décrivez votre projet ou votre demande..." required></textarea></div>
+                <button type="submit" class="form-submit">Envoyer le message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+            </form>
+        </div>
+    </div>
+</div></section>
+{% endblock %}

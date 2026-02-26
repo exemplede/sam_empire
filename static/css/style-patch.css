@@ -1,0 +1,132 @@
+/* =============================================
+   SAM EMPIRE — AMENDMENTS PATCH (style-patch.css)
+   Ajoutez ce fichier APRÈS style.css dans le <head>
+   ============================================= */
+
+/* ===== AMENDEMENT 1: NAVBAR CENTRÉE ===== */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    gap: 2rem;
+    position: relative;
+}
+.nav-logo {
+    position: absolute;
+    left: 2rem;
+}
+.nav-links {
+    margin: 0 auto;
+    justify-content: center;
+}
+.nav-burger {
+    position: absolute;
+    right: 2rem;
+}
+
+/* ===== AMENDEMENT 2: LOGO SANS CADRE CARRÉ ===== */
+.nav-logo img,
+.footer-brand .nav-logo img {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    /* Si le PNG a un fond transparent mais le cadre carré est visible,
+       cela force l'image à être affichée telle quelle */
+    object-fit: contain;
+}
+
+/* ===== AMENDEMENT 3: SECTIONS PLEIN ÉCRAN — SCROLL SNAP ===== */
+html {
+    scroll-snap-type: y mandatory;
+}
+/* Chaque section prend tout l'écran */
+.hero,
+.about,
+.mission-vision,
+.services,
+.team,
+.portfolio,
+.partners,
+.actualites,
+.testimonials,
+.contact {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+/* Hero est déjà flex, ajuster */
+.hero {
+    flex-direction: row;
+    align-items: center;
+}
+/* Partners a une structure spéciale */
+.partners {
+    justify-content: center;
+    align-items: center;
+}
+/* Footer ne snap pas, il suit la dernière section */
+.footer {
+    scroll-snap-align: none;
+}
+
+/* Sur mobile, désactiver le snap car trop de contenu par section */
+@media (max-width: 768px) {
+    html {
+        scroll-snap-type: none;
+    }
+    .hero, .about, .mission-vision, .services, .team,
+    .portfolio, .partners, .actualites, .testimonials, .contact {
+        min-height: auto;
+        scroll-snap-align: none;
+    }
+}
+
+/* ===== STYLES ARTICLES PUBLICS ===== */
+.actu-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.actu-card-link .actu-card {
+    transition: all .4s cubic-bezier(.25,.46,.45,.94);
+}
+.actu-card-link:hover .actu-card {
+    border-color: rgba(46, 134, 222, .3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .4);
+}
+.actu-read-more {
+    display: inline-block;
+    margin-top: .8rem;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    transition: all .3s;
+}
+.actu-card-link:hover .actu-read-more {
+    padding-left: 5px;
+}
+
+/* ===== PAGES ARTICLES (non-accueil) ===== */
+.page-articles, .page-article-detail, .page-gestion {
+    scroll-snap-type: none !important;
+}
+.page-articles .actualites,
+.page-article-detail .article-detail,
+.page-gestion section {
+    min-height: auto;
+    scroll-snap-align: none;
+}
+/* Article detail content styling */
+.article-content {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 2;
+}
+.article-content p {
+    margin-bottom: 1.2rem;
+}

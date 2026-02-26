@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}À Propos — SAM EMPIRE{% endblock %}
+{% block nav_apropos %}active{% endblock %}
+
+{% block content %}
+<section class="about section-padding page-section" id="apropos"><div class="container"><div class="about-grid">
+    <div class="about-image reveal active">
+        <div class="about-image-main" style="display:flex;align-items:center;justify-content:center;background:transparent;border:none;">
+            <img src="{% static 'images/SAM1.png' %}" alt="SAM EMPIRE" style="width:80%;height:auto;object-fit:contain;">
+        </div>
+        <div class="about-year-badge"><span class="since">Depuis</span><span class="year">2020</span></div>
+    </div>
+    <div class="about-content reveal active">
+        <div class="about-tag">Notre histoire</div>
+        <h2>Une ambition née au cœur du <span class="highlight">Burkina Faso</span></h2>
+        <p class="about-text">Fondée en 2020 par D.S.C. Thierry ABOUGA, SAM EMPIRE est né d'une ambition profonde : apporter une touche stratégique novatrice et un impact fort et durable au paysage économique du Burkina Faso.</p>
+        <p class="about-text">SAM EMPIRE a été créée pour offrir aux professionnels les outils de communication dont ils ont réellement besoin. D'un petit projet passionné à une entreprise structurée, nous avons grandi aux côtés de nos clients.</p>
+        <div class="about-values">
+            <div class="about-value"><div class="about-value-icon">🎯</div><h4>Excellence</h4><p>Des résultats concrets pour chaque projet.</p></div>
+            <div class="about-value"><div class="about-value-icon">💡</div><h4>Innovation</h4><p>Des solutions créatives et modernes.</p></div>
+            <div class="about-value"><div class="about-value-icon">🤝</div><h4>Engagement</h4><p>Un accompagnement personnalisé.</p></div>
+            <div class="about-value"><div class="about-value-icon">🌍</div><h4>Ambition</h4><p>Une vision nationale et internationale.</p></div>
+        </div>
+    </div>
+</div></div></section>
+
+<section class="mission-vision section-padding" id="mission"><div class="container">
+    <div class="section-header reveal active">
+        <div class="section-tag">Ce qui nous anime</div>
+        <h2 class="section-title">Notre <span class="highlight">Mission</span> & <span class="highlight">Vision</span></h2>
+        <p class="section-subtitle">Chaque entreprise mérite de devenir un empire à la hauteur de ses ambitions.</p>
+    </div>
+    <div class="mv-grid">
+        <div class="mv-card reveal active"><span class="mv-card-number">01</span><h3>🎯 Notre Mission</h3><p>Notre mission est de vous accompagner dans la réalisation de vos objectifs de communication, en vous apportant des résultats concrets. Chaque entreprise mérite de devenir un empire à la hauteur de ses ambitions.</p></div>
+        <div class="mv-card reveal active"><span class="mv-card-number">02</span><h3>🔭 Notre Vision</h3><p>Notre ambition première est de faire émerger et accompagner la création d'entreprises à l'échelle nationale et internationale, afin de bâtir un véritable empire fondé sur l'excellence et la performance.</p></div>
+    </div>
+</div></section>
+{% endblock %}

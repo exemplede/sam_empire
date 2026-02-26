@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Gestion Témoignages — SAM EMPIRE{% endblock %}
+{% block body_class %}page-gestion{% endblock %}
+
+{% block content %}
+<nav class="navbar scrolled" style="background:rgba(10,10,15,.98)!important;">
+<div class="nav-container">
+    <a href="{% url 'index' %}" class="nav-logo"><img src="{% static 'images/SAM.png' %}" alt="SAM EMPIRE" style="height:50px;width:auto;"></a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+        <a href="{% url 'gestion_articles' %}" style="color:var(--text-light);font-size:.85rem;">Articles</a>
+        <a href="{% url 'gestion_temoignages' %}" style="color:var(--primary-blue);font-size:.85rem;font-weight:600;">Témoignages</a>
+        <span style="color:var(--text-muted);font-size:.85rem;">👋 {{ request.user.username }}</span>
+        <a href="{% url 'gestion_logout' %}" class="btn-outline" style="padding:.5rem 1.2rem;font-size:.82rem;">Déconnexion</a>
+    </div>
+</div>
+</nav>
+
+<section style="padding:120px 0 4rem;min-height:100vh;background:var(--dark-bg);">
+<div class="container">
+    {% if messages %}
+    <div style="margin-bottom:2rem;">{% for message in messages %}<div class="alert alert-{{ message.tags }}" style="position:relative;">{{ message }}</div>{% endfor %}</div>
+    {% endif %}
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+            <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:700;">Gestion des Témoignages</h1>
+            <p style="color:var(--text-muted);font-size:.9rem;margin-top:.3rem;">{{ temoignages.count }} témoignage{{ temoignages.count|pluralize }} au total</p>
+        </div>
+        <a href="{% url 'gestion_temoignage_create' %}" class="btn-primary" style="padding:.8rem 1.8rem;">+ Nouveau Témoignage</a>
+    </div>
+
+    {% if temoignages %}
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+        {% for t in temoignages %}
+        <div class="contact-form-wrapper" style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div style="display:flex;align-items:center;gap:1.2rem;flex:1;min-width:200px;">
+                {% if t.image %}
+                <img src="{{ t.image.url }}" alt="{{ t.nom_client }}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--dark-border);">
+                {% endif %}
+                <div>
+                    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;">{{ t.nom_client }}</h3>
+                    <span style="font-size:.78rem;color:var(--text-muted);">{{ t.entreprise|default:"Client" }}</span>
+                    {% if t.publie %}
+                    <span style="font-size:.72rem;padding:.2rem .8rem;background:rgba(75,170,125,.15);color:var(--accent-green);border-radius:50px;font-weight:600;margin-left:.5rem;">Publié</span>
+                    {% else %}
+                    <span style="font-size:.72rem;padding:.2rem .8rem;background:rgba(196,75,75,.15);color:var(--accent-red);border-radius:50px;font-weight:600;margin-left:.5rem;">Masqué</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div style="display:flex;gap:.8rem;flex-shrink:0;">
+                <a href="{% url 'gestion_temoignage_edit' t.pk %}" class="btn-outline" style="padding:.5rem 1rem;font-size:.8rem;">Modifier</a>
+                <a href="{% url 'gestion_temoignage_delete' t.pk %}" class="btn-outline" style="padding:.5rem 1rem;font-size:.8rem;border-color:rgba(196,75,75,.3);color:var(--accent-red);">Supprimer</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align:center;padding:4rem 0;">
+        <p style="font-size:3rem;margin-bottom:1rem;">💬</p>
+        <h3 style="font-family:var(--font-display);margin-bottom:.5rem;">Aucun témoignage</h3>
+        <p style="color:var(--text-muted);margin-bottom:2rem;">Ajoutez vos premiers témoignages clients.</p>
+        <a href="{% url 'gestion_temoignage_create' %}" class="btn-primary">+ Ajouter un témoignage</a>
+    </div>
+    {% endif %}
+</div>
+</section>
+{% endblock %}

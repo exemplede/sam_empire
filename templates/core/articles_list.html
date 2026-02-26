@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Actualités — SAM EMPIRE{% endblock %}
+{% block nav_actualites %}active{% endblock %}
+
+{% block content %}
+<section class="actualites section-padding page-section" style="min-height:100vh;">
+<div class="container">
+    <div class="section-header">
+        <div class="section-tag">Restez informé</div>
+        <h2 class="section-title">Toutes nos <span class="highlight">Actualités</span></h2>
+        <p class="section-subtitle">Découvrez nos dernières nouvelles, projets et événements.</p>
+    </div>
+
+    {% if articles %}
+    <div class="actualites-grid">
+        {% for article in articles %}
+        <a href="{% url 'article_detail' article.slug %}" class="actu-card-link">
+            <div class="actu-card reveal active">
+                <div class="actu-card-image">
+                    {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.titre }}">
+                    {% else %}
+                    {{ article.icone }}
+                    {% endif %}
+                </div>
+                <div class="actu-card-body">
+                    <div class="actu-card-date">{{ article.date_publication|date:"d F Y" }}</div>
+                    <h4>{{ article.titre }}</h4>
+                    <p>{{ article.resume }}</p>
+                    <span class="actu-read-more">Lire la suite →</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if articles.has_other_pages %}
+    <div style="display:flex;justify-content:center;gap:1rem;margin-top:3rem;">
+        {% if articles.has_previous %}
+        <a href="?page={{ articles.previous_page_number }}" class="btn-outline" style="padding:.7rem 1.5rem;">← Précédent</a>
+        {% endif %}
+        <span style="display:flex;align-items:center;color:var(--text-muted);font-size:.9rem;">
+            Page {{ articles.number }} / {{ articles.paginator.num_pages }}
+        </span>
+        {% if articles.has_next %}
+        <a href="?page={{ articles.next_page_number }}" class="btn-outline" style="padding:.7rem 1.5rem;">Suivant →</a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% else %}
+    <div style="text-align:center;padding:4rem 0;">
+        <p style="font-size:3rem;margin-bottom:1rem;">📰</p>
+        <h3 style="font-family:var(--font-display);margin-bottom:.5rem;">Aucun article pour le moment</h3>
+        <p style="color:var(--text-muted);">Revenez bientôt pour nos dernières actualités !</p>
+        <a href="{% url 'index' %}" class="btn-primary" style="margin-top:2rem;">Retour à l'accueil</a>
+    </div>
+    {% endif %}
+</div>
+</section>
+{% endblock %}

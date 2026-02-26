@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Portfolio — SAM EMPIRE{% endblock %}
+{% block nav_portfolio %}active{% endblock %}
+
+{% block content %}
+<section class="portfolio section-padding page-section" id="portfolio"><div class="container">
+    <div class="section-header reveal active">
+        <div class="section-tag">Nos réalisations</div>
+        <h2 class="section-title">Notre <span class="highlight">Portfolio</span></h2>
+    </div>
+    <div class="portfolio-intro reveal active" style="text-align:center;max-width:750px;margin:0 auto 3rem;">
+        <div style="margin-bottom:1rem;">
+            <span class="portfolio-tag">Partenariat</span>
+            <span class="portfolio-tag">Vidéo</span>
+            <span class="portfolio-tag">Réseaux sociaux</span>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;margin-bottom:1rem;">Sotigui Awards</h3>
+        <p style="color:var(--text-light);font-size:1rem;line-height:1.8;">Nous avons accompagné les SOTIGUI AWARDS depuis plus de 3 ans, en contribuant à sa visibilité sur les réseaux sociaux à travers la réalisation de shorts vidéo percutants et de contenus visuels engageants.</p>
+    </div>
+    <div class="portfolio-gallery reveal active">
+        <div class="pg-item pg-large"><img src="{% static 'images/portfolio/sotigui-main.jpeg' %}" alt="Sotigui Awards"><div class="pg-overlay"><span>📷</span></div></div>
+        <div class="pg-item"><img src="{% static 'images/portfolio/photo-1.jpg' %}" alt="Photo 1" style="width:100%;height:100%;object-fit:cover;"><div class="pg-overlay"><span>📷</span></div></div>
+        <div class="pg-item"><video src="{% static 'images/portfolio/video-1.mp4' %}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()" style="width:100%;height:100%;object-fit:cover;"></video><div class="pg-overlay"><span>▶️</span></div></div>
+        <div class="pg-item"><img src="{% static 'images/portfolio/photo-2.jpg' %}" alt="Photo 2" style="width:100%;height:100%;object-fit:cover;"><div class="pg-overlay"><span>📷</span></div></div>
+        <div class="pg-item"><video src="{% static 'images/portfolio/video-2.mp4' %}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()" style="width:100%;height:100%;object-fit:cover;"></video><div class="pg-overlay"><span>▶️</span></div></div>
+        <div class="pg-item"><img src="{% static 'images/portfolio/photo-3.jpg' %}" alt="Photo 3" style="width:100%;height:100%;object-fit:cover;"><div class="pg-overlay"><span>📷</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+        <a href="{% url 'page_contact' %}" class="btn-outline">Discuter de votre projet →</a>
+    </div>
+</div></section>
+
+<!-- PARTENAIRES -->
+<section class="partners section-padding" id="partenaires"><div class="container">
+    <div class="section-header reveal active">
+        <div class="section-tag">Ils nous font confiance</div>
+        <h2 class="section-title">Nos <span class="highlight">Partenaires</span></h2>
+    </div>
+</div>
+<div class="partners-marquee">
+    <div class="partners-marquee-track">
+        <div class="pm-item"><img src="{% static 'images/partners/croix.jpg' %}" alt="Croix-Rouge" onerror="this.outerHTML='<span>Croix-Rouge</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/sunu.jpg' %}" alt="Sunu Assurance" onerror="this.outerHTML='<span>Sunu Assurance</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/bsic.jpg' %}" alt="BISIC" onerror="this.outerHTML='<span>BISIC</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/cerpamad.jpg' %}" alt="CNPB" onerror="this.outerHTML='<span>CNPB</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/bf1.jpg' %}" alt="BF1" onerror="this.outerHTML='<span>BF1</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/ideal.jpg' %}" alt="Idéal" onerror="this.outerHTML='<span>Idéal</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/raynal.jpg' %}" alt="Raynal" onerror="this.outerHTML='<span>Raynal</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/ulb.jpg' %}" alt="ULB" onerror="this.outerHTML='<span>ULB</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/synergie.jpg' %}" alt="Synergie" onerror="this.outerHTML='<span>Synergie</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/sotigui-awards.jpg' %}" alt="Sotigui Awards" onerror="this.outerHTML='<span>Sotigui Awards</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/delegue.jpg' %}" alt="Déléguée d Or" onerror="this.outerHTML='<span>Déléguée d Or</span>'"></div>
+        <!-- Duplicate -->
+        <div class="pm-item"><img src="{% static 'images/partners/croix.jpg' %}" alt="Croix-Rouge" onerror="this.outerHTML='<span>Croix-Rouge</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/sunu.jpg' %}" alt="Sunu Assurance" onerror="this.outerHTML='<span>Sunu Assurance</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/bsic.jpg' %}" alt="BISIC" onerror="this.outerHTML='<span>BISIC</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/cerpamad.jpg' %}" alt="CNPB" onerror="this.outerHTML='<span>CNPB</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/bf1.jpg' %}" alt="BF1" onerror="this.outerHTML='<span>BF1</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/ideal.jpg' %}" alt="Idéal" onerror="this.outerHTML='<span>Idéal</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/raynal.jpg' %}" alt="Raynal" onerror="this.outerHTML='<span>Raynal</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/ulb.jpg' %}" alt="ULB" onerror="this.outerHTML='<span>ULB</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/synergie.jpg' %}" alt="Synergie" onerror="this.outerHTML='<span>Synergie</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/sotigui-awards.jpg' %}" alt="Sotigui Awards" onerror="this.outerHTML='<span>Sotigui Awards</span>'"></div>
+        <div class="pm-item"><img src="{% static 'images/partners/delegue.jpg' %}" alt="Déléguée d Or" onerror="this.outerHTML='<span>Déléguée d Or</span>'"></div>
+    </div>
+</div>
+</section>
+{% endblock %}

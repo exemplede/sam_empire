@@ -1,0 +1,85 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}{% if mode == 'edit' %}Modifier{% else %}Nouvel{% endif %} Article — SAM EMPIRE{% endblock %}
+{% block body_class %}page-gestion{% endblock %}
+
+{% block content %}
+<nav class="navbar scrolled" style="background:rgba(10,10,15,.98)!important;">
+<div class="nav-container">
+    <a href="{% url 'index' %}" class="nav-logo"><img src="{% static 'images/SAM.png' %}" alt="SAM EMPIRE" style="height:50px;width:auto;"></a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+        <a href="{% url 'gestion_articles' %}" style="color:var(--text-light);font-size:.85rem;">← Retour aux articles</a>
+        <a href="{% url 'gestion_logout' %}" class="btn-outline" style="padding:.5rem 1.2rem;font-size:.82rem;">Déconnexion</a>
+    </div>
+</div>
+</nav>
+
+<section style="padding:120px 0 4rem;min-height:100vh;background:var(--dark-bg);">
+<div class="container" style="max-width:800px;">
+
+    {% if messages %}
+    <div style="margin-bottom:2rem;">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" style="position:relative;">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:700;margin-bottom:2rem;">
+        {% if mode == 'edit' %}Modifier l'article{% else %}Nouvel article{% endif %}
+    </h1>
+
+    <div class="contact-form-wrapper" style="padding:2.5rem;">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="titre">Titre de l'article *</label>
+                <input type="text" id="titre" name="titre" value="{{ article.titre|default:'' }}" placeholder="Le titre de votre article" required>
+            </div>
+
+            <div class="form-group">
+                <label for="resume">Résumé court * <small style="color:var(--text-muted);">(affiché sur la page d'accueil, max 300 car.)</small></label>
+                <textarea id="resume" name="resume" style="min-height:80px;" placeholder="Un court résumé pour donner envie de lire..." required>{{ article.resume|default:'' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="contenu">Contenu complet *</label>
+                <textarea id="contenu" name="contenu" style="min-height:300px;" placeholder="Le contenu complet de votre article... Vous pouvez écrire autant que nécessaire." required>{{ article.contenu|default:'' }}</textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="icone">Icône emoji</label>
+                    <input type="text" id="icone" name="icone" value="{{ article.icone|default:'📰' }}" placeholder="📰">
+                    <small style="color:var(--text-muted);font-size:.75rem;">Utilisée si pas d'image (ex: 📰 🎥 🚀 🏆)</small>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image de couverture</label>
+                    <input type="file" id="image" name="image" accept="image/*" style="padding:.7rem;">
+                    {% if article.image %}
+                    <small style="color:var(--accent-green);font-size:.75rem;">Image actuelle : {{ article.image.name }}</small>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:1rem;">
+                <label style="display:flex;align-items:center;gap:.8rem;cursor:pointer;">
+                    <input type="checkbox" name="publie" {% if article.publie or mode == 'create' %}checked{% endif %} style="width:18px;height:18px;accent-color:var(--primary-blue);">
+                    <span>Publier l'article</span>
+                </label>
+                <small style="color:var(--text-muted);font-size:.75rem;">Décochez pour enregistrer comme brouillon</small>
+            </div>
+
+            <div style="display:flex;gap:1rem;margin-top:2rem;">
+                <button type="submit" class="form-submit" style="flex:1;">
+                    {% if mode == 'edit' %}Enregistrer les modifications{% else %}Publier l'article{% endif %}
+                </button>
+                <a href="{% url 'gestion_articles' %}" class="btn-outline" style="padding:1rem 1.5rem;">Annuler</a>
+            </div>
+        </form>
+    </div>
+</div>
+</section>
+{% endblock %}
