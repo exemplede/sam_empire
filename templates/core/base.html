@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% block meta_desc %}SAM EMPIRE SARL - Agence de communication au Burkina Faso.{% endblock %}">
+    <meta name="description" content="{% block meta_desc %}SAM EMPIRE SARL - Structure de communication au Burkina Faso.{% endblock %}">
     <title>{% block title %}SAM EMPIRE{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/patch.css' %}">
@@ -24,7 +24,7 @@
     <!-- NAVBAR — partagée sur toutes les pages -->
     <nav class="navbar"><div class="nav-container">
         <a href="{% url 'index' %}" class="nav-logo">
-            <img src="{% static 'images/SAM1.png' %}" alt="SAM EMPIRE">
+            <img src="{% static 'images/SAM1.png' %}" alt="SAM EMPIRE" style="height: 100px; width: auto;">
         </a>
         <ul class="nav-links">
             <li><a href="{% url 'index' %}" class="{% block nav_accueil %}{% endblock %}">Accueil</a></li>
@@ -48,7 +48,7 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <a href="{% url 'index' %}" class="nav-logo">
-                    <img src="{% static 'images/SAM1.png' %}" alt="SAM EMPIRE" style="height:55px;width:auto;">
+                    <img src="{% static 'images/SAM1.png' %}" alt="SAM EMPIRE" style="height:180px;width:auto;">
                 </a>
                 <p>Donner à vos ambitions la dimension d'un empire. Agence de communication au Burkina Faso.</p>
                 <div class="contact-socials">
