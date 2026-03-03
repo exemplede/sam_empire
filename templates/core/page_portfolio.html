@@ -12,21 +12,80 @@
     </div>
     <div class="portfolio-intro reveal active" style="text-align:center;max-width:750px;margin:0 auto 3rem;">
         <div style="margin-bottom:1rem;">
-            <span class="portfolio-tag">Partenariat</span>
-            <span class="portfolio-tag">Vidéo</span>
-            <span class="portfolio-tag">Réseaux sociaux</span>
         </div>
-        <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;margin-bottom:1rem;">Sotigui Awards</h3>
-        <p style="color:var(--text-light);font-size:1rem;line-height:1.8;">Nous avons accompagné les SOTIGUI AWARDS depuis plus de 3 ans, en contribuant à sa visibilité sur les réseaux sociaux à travers la réalisation de shorts vidéo percutants et de contenus visuels engageants.</p>
+        <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;margin-bottom:1rem;"></h3>
+        <p style="color:var(--text-light);font-size:1rem;line-height:1.8;">Partenaire des SOTIGUI AWARDS depuis plus de trois ans et Délégué d’Or depuis plus de cinq ans, nous contribuons à leur visibilité sur les réseaux sociaux à travers des contenus visuels et des shorts vidéo à fort impact</p>
     </div>
-    <div class="portfolio-gallery reveal active">
-        <div class="pg-item pg-large"><img src="{% static 'images/portfolio/sotigui-main.jpeg' %}" alt="Sotigui Awards"><div class="pg-overlay"><span>📷</span></div></div>
-        <div class="pg-item"><img src="{% static 'images/portfolio/photo-1.jpg' %}" alt="Photo 1" style="width:100%;height:100%;object-fit:cover;"><div class="pg-overlay"><span>📷</span></div></div>
-        <div class="pg-item"><video src="{% static 'images/portfolio/video-1.mp4' %}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()" style="width:100%;height:100%;object-fit:cover;"></video><div class="pg-overlay"><span>▶️</span></div></div>
-        <div class="pg-item"><img src="{% static 'images/portfolio/photo-2.jpg' %}" alt="Photo 2" style="width:100%;height:100%;object-fit:cover;"><div class="pg-overlay"><span>📷</span></div></div>
-        <div class="pg-item"><video src="{% static 'images/portfolio/video-2.mp4' %}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()" style="width:100%;height:100%;object-fit:cover;"></video><div class="pg-overlay"><span>▶️</span></div></div>
-        <div class="pg-item"><img src="{% static 'images/portfolio/photo-3.jpg' %}" alt="Photo 3" style="width:100%;height:100%;object-fit:cover;"><div class="pg-overlay"><span>📷</span></div></div>
+
+    <!-- GALERIE MODERNE — Masonry-style -->
+    <div class="portfolio-masonry reveal active">
+        <div class="pm-col">
+            <div class="pm-img pm-img-tall">
+                <img src="{% static 'images/portfolio/sotigui-main.jpeg' %}" alt="Sotigui Awards" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">Sotigui Awards</span>
+                    <span class="pm-img-title">Événement principal</span>
+                </div>
+            </div>
+            <div class="pm-img">
+                <img src="{% static 'images/portfolio/photo-2.jpg' %}" alt="Réalisation 2" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">SOTIGUI</span>
+                </div>
+            </div>
+            <div class="pm-img ">
+                <img src="{% static 'images/portfolio/photo-8.jpg' %}" alt="Réalisation 8" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">SOTIGUI</span>
+                </div>
+            </div>
+        </div>
+        <div class="pm-col">
+            <div class="pm-img">
+                <img src="{% static 'images/portfolio/photo-1.jpg' %}" alt="Réalisation 1" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">SOTIGUI</span>
+                </div>
+            </div>
+            <div class="pm-img pm-img-tall">
+                <img src="{% static 'images/portfolio/photo-3.jpg' %}" alt="Réalisation 3" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">SOTIGUI</span>
+                </div>
+            </div>
+            <div class="pm-img pm-img-tal">
+                <img src="{% static 'images/portfolio/photo-6.jpg' %}" alt="Réalisation 6" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">Remise de prix -Delegue d'or</span>
+                </div>
+            </div>
+        </div>
+        <div class="pm-col">
+            <div class="pm-img pm-img-tall">
+                <img src="{% static 'images/portfolio/photo-4.jpg' %}" alt="Réalisation 4" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">Remise d'attestation</span>
+                </div>
+            </div>
+            <div class="pm-img">
+                <img src="{% static 'images/portfolio/photo-5.jpg' %}" alt="Réalisation 5" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">SAM EMPIRE, couverture video officiel Sotigui</span>
+                </div>
+            </div>
+            <div class="pm-img ">
+                <img src="{% static 'images/portfolio/photo-7.jpg' %}" alt="Réalisation 7" loading="lazy">
+                <div class="pm-img-overlay">
+                    <span class="pm-img-cat">Delegue d'or -Trophee</span>
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="pm-col">
+            
+            
+        </div> {% endcomment %}
     </div>
+
     <div style="text-align:center;margin-top:2.5rem;">
         <a href="{% url 'page_contact' %}" class="btn-outline">Discuter de votre projet →</a>
     </div>
@@ -41,30 +100,57 @@
 </div>
 <div class="partners-marquee">
     <div class="partners-marquee-track">
-        <div class="pm-item"><img src="{% static 'images/partners/croix.jpg' %}" alt="Croix-Rouge" onerror="this.outerHTML='<span>Croix-Rouge</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/sunu.jpg' %}" alt="Sunu Assurance" onerror="this.outerHTML='<span>Sunu Assurance</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/bsic.jpg' %}" alt="BISIC" onerror="this.outerHTML='<span>BISIC</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/cerpamad.jpg' %}" alt="CNPB" onerror="this.outerHTML='<span>CNPB</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/bf1.jpg' %}" alt="BF1" onerror="this.outerHTML='<span>BF1</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/ideal.jpg' %}" alt="Idéal" onerror="this.outerHTML='<span>Idéal</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/raynal.jpg' %}" alt="Raynal" onerror="this.outerHTML='<span>Raynal</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/ulb.jpg' %}" alt="ULB" onerror="this.outerHTML='<span>ULB</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/synergie.jpg' %}" alt="Synergie" onerror="this.outerHTML='<span>Synergie</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/sotigui-awards.jpg' %}" alt="Sotigui Awards" onerror="this.outerHTML='<span>Sotigui Awards</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/delegue.jpg' %}" alt="Déléguée d Or" onerror="this.outerHTML='<span>Déléguée d Or</span>'"></div>
-        <!-- Duplicate -->
-        <div class="pm-item"><img src="{% static 'images/partners/croix.jpg' %}" alt="Croix-Rouge" onerror="this.outerHTML='<span>Croix-Rouge</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/sunu.jpg' %}" alt="Sunu Assurance" onerror="this.outerHTML='<span>Sunu Assurance</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/bsic.jpg' %}" alt="BISIC" onerror="this.outerHTML='<span>BISIC</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/cerpamad.jpg' %}" alt="CNPB" onerror="this.outerHTML='<span>CNPB</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/bf1.jpg' %}" alt="BF1" onerror="this.outerHTML='<span>BF1</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/ideal.jpg' %}" alt="Idéal" onerror="this.outerHTML='<span>Idéal</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/raynal.jpg' %}" alt="Raynal" onerror="this.outerHTML='<span>Raynal</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/ulb.jpg' %}" alt="ULB" onerror="this.outerHTML='<span>ULB</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/synergie.jpg' %}" alt="Synergie" onerror="this.outerHTML='<span>Synergie</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/sotigui-awards.jpg' %}" alt="Sotigui Awards" onerror="this.outerHTML='<span>Sotigui Awards</span>'"></div>
-        <div class="pm-item"><img src="{% static 'images/partners/delegue.jpg' %}" alt="Déléguée d Or" onerror="this.outerHTML='<span>Déléguée d Or</span>'"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/croix.jpg' %}" alt="Croix-Rouge"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/sunu.jpg' %}" alt="Sunu Assurance"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/bsic.jpg' %}" alt="BSIC"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/cerpamad.jpg' %}" alt="Cerpamad"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/bf1.jpg' %}" alt="BF1"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/ideal.jpg' %}" alt="Idéal"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/raynal.jpg' %}" alt="Raynal"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/ulb.jpg' %}" alt="ULB"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/synergie.jpg' %}" alt="Synergie"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/sotigui.jpg' %}" alt="Sotigui Awards"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/delegue.jpg' %}" alt="Déléguée d'Or"></div>
+        <!-- Duplicate pour boucle infinie -->
+        <div class="pm-logo"><img src="{% static 'images/partners/croix.jpg' %}" alt="Croix-Rouge"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/sunu.jpg' %}" alt="Sunu Assurance"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/bsic.jpg' %}" alt="BSIC"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/cerpamad.jpg' %}" alt="Cerpamad"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/bf1.jpg' %}" alt="BF1"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/ideal.jpg' %}" alt="Idéal"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/raynal.jpg' %}" alt="Raynal"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/ulb.jpg' %}" alt="ULB"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/synergie.jpg' %}" alt="Synergie"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/sotigui.jpg' %}" alt="Sotigui Awards"></div>
+        <div class="pm-logo"><img src="{% static 'images/partners/delegue.jpg' %}" alt="Déléguée d'Or"></div>
     </div>
 </div>
 </section>
+
+<!-- Lightbox -->
+<div id="portfolioLightbox" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);align-items:center;justify-content:center;cursor:pointer;" onclick="this.style.display='none';document.body.style.overflow='';">
+    <img id="portfolioLightboxImg" src="" alt="" style="max-width:92%;max-height:90vh;border-radius:8px;box-shadow:0 20px 80px rgba(0,0,0,.6);">
+    <button onclick="event.stopPropagation();document.getElementById('portfolioLightbox').style.display='none';document.body.style.overflow='';" style="position:absolute;top:1.5rem;right:1.5rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">&times;</button>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.querySelectorAll('.pm-img').forEach(function(el) {
+    el.addEventListener('click', function() {
+        var img = this.querySelector('img');
+        if (img) {
+            document.getElementById('portfolioLightboxImg').src = img.src;
+            document.getElementById('portfolioLightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('portfolioLightbox').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+</script>
 {% endblock %}

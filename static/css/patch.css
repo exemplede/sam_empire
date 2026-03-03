@@ -102,3 +102,106 @@
         padding-top: 100px !important;
     }
 }
+.portfolio-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.pm-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.pm-img {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 250px;
+}
+.pm-img.pm-img-tall {
+    height: 380px;
+}
+.pm-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.25,.46,.45,.94), filter .4s;
+}
+.pm-img:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.7);
+}
+.pm-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(0deg, rgba(0,0,0,.7) 0%, transparent 100%);
+    transform: translateY(100%);
+    transition: transform .4s cubic-bezier(.25,.46,.45,.94);
+}
+.pm-img:hover .pm-img-overlay {
+    transform: translateY(0);
+}
+.pm-img-cat {
+    display: inline-block;
+    font-size: .7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-blue);
+    margin-bottom: .3rem;
+}
+.pm-img-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: .95rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .portfolio-masonry {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 550px) {
+    .portfolio-masonry {
+        grid-template-columns: 1fr;
+    }
+    .pm-img, .pm-img.pm-img-tall {
+        height: 220px;
+    }
+}
+
+/* ===== PARTENAIRES — LOGOS UNIFORMES SANS CADRE ===== */
+.pm-logo {
+    flex-shrink: 0;
+    width: 180px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Pas de bordure, pas de fond, pas de carré */
+}
+.pm-logo img {
+    max-width: 150px;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: all .4s;
+}
+/* .pm-logo img:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+} */
+
+/* Cacher les anciens .pm-item si encore présents */
+.pm-item {
+    display: none !important;
+}
